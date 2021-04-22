@@ -5,8 +5,8 @@ from setuptools import setup, find_packages
 
 setup(
     name="creon-api",
-    version='1.0',
-    url="https://github.com/quantrading/quantrading",
+    version='1.1',
+    url="https://github.com/quantrading/creon-api",
     license="MIT",
     author="Jang Woo Jae",
     author_email="wojae.jang@gmail.com",

@@ -4,7 +4,7 @@ import creon_api.scripts.crawl_daily_stock_adj_info
 import creon_api.scripts.crawl_daily_price
 import creon_api.scripts.crawl_daily_minute_price
 import creon_api.scripts.processing_adj_info
-
+import creon_api.scripts.parse_adj_ratio
 
 if __name__ == "__main__":
     # 주식시장 종목리스트 다운로드
@@ -30,3 +30,10 @@ if __name__ == "__main__":
         print(f"{code} {i + 1}/{len(code_list)}")
         processed_adj_price_df = creon_api.scripts.processing_adj_info.get_processed_adj_price_df(code)
         creon_api.scripts.processing_adj_info.save_processed_df_to_file(processed_adj_price_df, code)
+
+    # 수정비율 계산 및 저장
+    code_list = utils.get_adj_file_code_list()
+    for i, code in enumerate(code_list):
+        print(f"{code} {i + 1}/{len(code_list)}")
+        float_ratio_series = creon_api.scripts.parse_adj_ratio.parse_float_ratio(code)
+        creon_api.scripts.parse_adj_ratio.save_float_ratio_series_to_file(float_ratio_series, code)

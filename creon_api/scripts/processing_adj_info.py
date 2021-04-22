@@ -70,4 +70,4 @@ def get_processed_adj_price_df(code: str) -> pd.DataFrame:
 
 def save_processed_df_to_file(df: pd.DataFrame, code: str, data_folder_path: str = ADJ_DAILY_DATA_PATH):
     utils.make_dir(data_folder_path)
-    df.to_csv(f"{ADJ_DAILY_DATA_PATH}/{code}.csv", encoding='utf-8-sig')
+    df.to_csv(f"{data_folder_path}/{code}.csv", encoding='utf-8-sig')
